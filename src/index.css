@@ -23,3 +23,8 @@ h5 {
   font-weight: 500;
   line-height: 1.2;
 }
+
+#keys-field {
+  color: red;
+  font-size: 30px;
+}

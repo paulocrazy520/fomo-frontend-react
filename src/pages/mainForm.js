@@ -57,9 +57,11 @@ function a11yProps2(index) {
   };
 }
 
+
 function MainBanner() {
   const [value1, setValue1] = React.useState(0);
   const [value2, setValue2] = React.useState(0);
+  const [valueSol, setValueSol] = React.useState(0);
   const handleChange1 = (event, newValue) => {
     setValue1(newValue);
   };
@@ -68,14 +70,20 @@ function MainBanner() {
     setValue2(newValue);
   };
 
+  const handleClick = (value) =>  {
+    console.log("handelClick:", value);
+    setValueSol(value + valueSol);
+  }
+
   return (
     <Box
       sx={{
         ...DISPLAY_ROW_STYLE,
         width: "100%",
         alignItems: "center",
-        justifyContent: "space-around",
+        justifyContent: "center",
         marginTop: "20px",
+        color: WHITE_DEFAULT_COLOR,
       }}
     >
       <Box
@@ -104,13 +112,93 @@ function MainBanner() {
           </Tabs>
         </Box>
         <TabPanel value={value1} index={0}>
-          Item One
+          <Box sx={{ ...DISPLAY_COLUMN_STYLE }}>
+            <Typography>
+              Purchases of .1 BNB or more have a 1% chance to win some of the 0
+              BNB airdrop pot, instantly!
+            </Typography>
+            <div class="input-group">
+              <input
+                aria-label="First name"
+                type="number"
+                id="keys-field"
+                class="form-control"
+                value={valueSol}
+              />
+              <input
+                placeholder="@0 SOL"
+                aria-label="Last name"
+                disabled="disabled"
+                class="form-control"
+              />
+            </div>
+            <div role="group" class="increment-keys-buttons btn-group">
+              <button type="button" class="btn btn-outline-warning" onClick={() => handleClick(1)}>
+                {" "}
+                + 1 Key{" "}
+              </button>
+              <button type="button" class="btn btn-outline-warning"  onClick={() => handleClick(2)}>
+                {" "}
+                + 2 Keys{" "}
+              </button>
+              <button
+                type="button"
+                class="increment-button btn btn-outline-warning"
+                onClick={() => handleClick(5)}>
+                <div>+</div>5{" "}
+              </button>
+              <button
+                type="button"
+                class="increment-button btn btn-outline-warning"
+                onClick={() => handleClick(10)}>
+                <div>+</div>10{" "}
+              </button>
+              <button
+                type="button"
+                class="increment-button btn btn-outline-warning"
+                onClick={() => handleClick(100)}>
+                <div>+</div>100{" "}
+              </button>
+            </div>{" "}
+            <button
+              disabled=""
+              focus="true"
+              type="button"
+              class="send-button btn btn-custom"
+            >
+              Send Sol{" "}
+            </button>
+            {/*           
+          <div class="send-vault-buttons">
+            <button
+              disabled=""
+              focus="true"
+              type="button"
+              class="send-button btn btn-custom"
+            >
+              <img
+                // src="/static/media/bnbiconhq.7f5de32a.png"
+                class="bnb-icon"
+                style="margin: -10px 5px -5px -10px;"
+              />{" "}
+              Send BNB{" "}
+            </button>
+            <button
+              disabled=""
+              type="button"
+              class="use-vault-button btn active btn-custom"
+            >
+              <i class="fas fa-piggy-bank" aria-hidden="true"></i> Use Vault{" "}
+            </button>
+          </div>{" "}
+           */}
+          </Box>
         </TabPanel>
         <TabPanel value={value1} index={1}>
-          Item Two
+          Coming Soon
         </TabPanel>
         <TabPanel value={value1} index={2}>
-          Item Three
+          Coming Soon
         </TabPanel>
       </Box>
       <Box
@@ -120,7 +208,7 @@ function MainBanner() {
           backgroundColor: DARK_DEFAULT_COLOR,
         }}
       >
-        <Box
+        {/* <Box
           sx={{
             borderBottom: 1,
             borderColor: "divider",
@@ -145,7 +233,7 @@ function MainBanner() {
         </TabPanel>
         <TabPanel value={value2} index={2}>
           Item Three2
-        </TabPanel>
+        </TabPanel> */}
       </Box>
     </Box>
   );
