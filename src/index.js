@@ -1,15 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { HashConnect } from 'hashconnect';
-import './index.css';
-import App from './App';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { ChakraProvider } from "@chakra-ui/react";
 
-import HashConnectProvider from './api/HashConnectAPIProvider.tsx';
-const hashConnect = new HashConnect(true);
+import WalletAdapter from "./WalletAdapter";
+import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById("root"));
 root.render(
-  <HashConnectProvider hashConnect={hashConnect} debug>
-    <App />
-  </HashConnectProvider>
+  <StrictMode>
+    <WalletAdapter />
+  </StrictMode>
 );

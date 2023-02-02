@@ -15,6 +15,8 @@ import {
   DARK_DEFAULT_COLOR,
 } from "../default/color";
 
+const PRICE_PER_KEY = 0.01;
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -57,7 +59,6 @@ function a11yProps2(index) {
   };
 }
 
-
 function MainBanner() {
   const [value1, setValue1] = React.useState(0);
   const [value2, setValue2] = React.useState(0);
@@ -70,10 +71,10 @@ function MainBanner() {
     setValue2(newValue);
   };
 
-  const handleClick = (value) =>  {
+  const handleClick = (value) => {
     console.log("handelClick:", value);
     setValueSol(value + valueSol);
-  }
+  };
 
   return (
     <Box
@@ -130,33 +131,45 @@ function MainBanner() {
                 aria-label="Last name"
                 disabled="disabled"
                 class="form-control"
+                value={valueSol * 0.01}
               />
             </div>
             <div role="group" class="increment-keys-buttons btn-group">
-              <button type="button" class="btn btn-outline-warning" onClick={() => handleClick(1)}>
+              <button
+                type="button"
+                class="btn btn-outline-warning"
+                onClick={() => handleClick(1)}
+              >
                 {" "}
                 + 1 Key{" "}
               </button>
-              <button type="button" class="btn btn-outline-warning"  onClick={() => handleClick(2)}>
+              <button
+                type="button"
+                class="btn btn-outline-warning"
+                onClick={() => handleClick(2)}
+              >
                 {" "}
                 + 2 Keys{" "}
               </button>
               <button
                 type="button"
                 class="increment-button btn btn-outline-warning"
-                onClick={() => handleClick(5)}>
+                onClick={() => handleClick(5)}
+              >
                 <div>+</div>5{" "}
               </button>
               <button
                 type="button"
                 class="increment-button btn btn-outline-warning"
-                onClick={() => handleClick(10)}>
+                onClick={() => handleClick(10)}
+              >
                 <div>+</div>10{" "}
               </button>
               <button
                 type="button"
                 class="increment-button btn btn-outline-warning"
-                onClick={() => handleClick(100)}>
+                onClick={() => handleClick(100)}
+              >
                 <div>+</div>100{" "}
               </button>
             </div>{" "}

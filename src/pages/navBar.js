@@ -11,6 +11,7 @@ import {
 } from "../default/style";
 import { MAX_WRAPPER_WIDTH, NAVBAR_HEIGHT } from "../default/value";
 import HashPackConnectButton from "../components/hashpackConnectButton";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import {
   BLACK_DEFAULT_COLOR,
   RED_DEFAULT_COLOR,
@@ -36,12 +37,12 @@ function Navbar() {
         sx={{
           ...DISPLAY_COLUMN_STYLE,
           ...{
-            width:"100%",
+            width: "100%",
             alignItems: "center",
             justifyContent: "space-between",
             borderBottomLeftRadius: "20px",
             borderBottomRightRadius: "20px",
-             backgroundColor : DARK_DEFAULT_COLOR,
+            backgroundColor: DARK_DEFAULT_COLOR,
           },
         }}
       >
@@ -50,8 +51,8 @@ function Navbar() {
             ...DISPLAY_ROW_STYLE,
             ...{
               margin: "10px 0 10px 0",
-              width: '100%',
-              height: '100%',
+              width: "100%",
+              height: "100%",
               maxWidth: `${MAX_WRAPPER_WIDTH}px`,
               height: `${NAVBAR_HEIGHT}px`,
               alignItems: "center",
@@ -59,7 +60,7 @@ function Navbar() {
             },
           }}
         >
-          <HashPackConnectButton />
+          <WalletMultiButton />
         </Box>
       </Box>
     </>
